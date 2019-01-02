@@ -1,8 +1,10 @@
 build:
-  docker:
-    web: Dockerfile
   config:
-    STAGING_CONFIG_VAR: 0
+    APCA_API_KEY_ID: $APCA_API_KEY_ID
+    APCA_API_SECRET_KEY: $APCA_API_SECRET_KEY
+  docker:
+    worker: Dockerfile
 
-run:
-  web: ruby myapp.rb -p $PORT
+run: 
+  worker: 
+    image: worker
